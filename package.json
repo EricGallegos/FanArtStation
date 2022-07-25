@@ -1,0 +1,32 @@
+{
+  "name": "fanartstation",
+  "version": "0.0.1",
+  "description": "Hosts retrievable links to fanart images and media",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricGallegos/FanArtStation.git"
+  },
+  "keywords": [
+    "Fanart",
+    "MongoDB",
+    "Media"
+  ],
+  "author": "Eric Gallegos",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/EricGallegos/FanArtStation/issues"
+  },
+  "homepage": "https://github.com/EricGallegos/FanArtStation#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
