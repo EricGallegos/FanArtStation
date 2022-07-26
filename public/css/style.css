@@ -1,16 +1,22 @@
+*{
+  box-sizing: border-box;
+}
+
 body{
-background-color: grey;
+background-color: black;
+font-family: 'Secular One', sans-serif;
+color: white;
 }
 
 header{
-  font-family: 'Secular One', sans-serif;
-  font-size: 1.5rem;
   display: flex;
+  height: 10vh;
   justify-content: flex-start;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid grey;
 }
 
 header section{
+  font-size: 1.25rem;
   width: 30%;
 }
 
@@ -26,30 +32,45 @@ header ul{
 header li{
   width: 25%;
   padding-left: 9px;
-  border-left: 1px solid black;
+  border-left: 1px solid grey;
 }
 
 #imageSplash{
   width: 100%;
+  height: 100vh;
 }
 
 #imageSplash ul{
   display: flex;
+  flex-direction: row;
   list-style: none;
+  height: 100%;
   padding-left: 0px;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #imgContainer{
   display: flex;
   align-items: center;
   max-width: 19%;
-  background-color: red;
-  border: 1px solid black;
+  min-height: 280px;
+  background-color: black;
+  transition: .5s ease;
+}
+
+#imgContainer:hover{
+  background-color: grey;
 }
 
 #imageSplash img{
   width: 100%;
+  border: 1px solid grey;
+}
+
+@media only screen and (orientation: landscape){
+  #imgContainer{
+      max-width: 14%;
+  }
 }
