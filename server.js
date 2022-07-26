@@ -5,94 +5,48 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
-let art = [
-  {
-    id: 0,
-    url: 'xoxo',
-    date: 'date/time',
-    "media-type": "image",
-    tags: [],
-    ip: "LOTR"
-  },
-  {
-    id: 1,
-    url: 'xoxo',
-    date: 'date/time',
-    "media-type": "image",
-    tags: [],
-    ip: "Harry Potter"
-  },
-  {
-    id: 2,
-    url: 'xoxo',
-    date: 'date/time',
-    "media-type": "image",
-    tags: [],
-    ip: "LOTR"
+// Testing information //
+class Media{
+  constructor( {name, url, creator, date, uploadedBy} ){
+    this.name = name || "John Snoe";
+    this.url = url || "#";
+    this.creator = creator || '?';
+    this.date = new Date();
+    this.uploadedBy = uploadedBy;
+    this.upvotes = 0;
   }
-];
+}
+
+const creations = [
+  { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/008/666/799/large/andres-blanco-dvafanartsss-ahora-si-final.jpg?1514408536' },
+  { url: 'https://external-preview.redd.it/LGiMRW0B-Mz2KzTORYU-w2gp93R2Q5a7C4F1fDLkhiA.png?auto=webp&s=962911c344ecc4d6629b356ea42b60cfe88bfe02' },
+  { url: 'http://www.themanwiththehat.de/files/attachments/pZZ7xT1g.jpg' },
+  { url: 'https://i.pinimg.com/736x/9a/ea/99/9aea99d61bfd50a9d6aadb4469be33a4.jpg' },
+  { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
+  { url: 'https://external-preview.redd.it/3czaaDd4GSc-0-3gk8VTDi4yYdYjLrxln-iGvSLUQ4o.jpg?auto=webp&s=ad9739951fe88186d17784138fcc4a9d6fa98060'},
+  { url: 'https://assets.wallpapersin4k.org/uploads/2017/04/Wallpaper-Fan-Art-21.jpg'},
+  { url: 'http://pm1.narvii.com/7319/87253137c79924ac8bef849df9ab76369318c316r1-2048-2047v2_uhq.jpg'},
+  { url: 'https://static.wikia.nocookie.net/f8c3ae14-b1be-4dea-a0e0-19c40868845c/scale-to-width/755'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/001/207/916/large/oreki-genya-x.jpg?1442227975'},
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/014/607/823/large/aj-ramos-goblin-slayer-final-2.jpg?1544677847'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
+]
+let testMedia = []
+
+function populateTestMedia(){
+  for(let i = 0; i < 13; i++){
+    testMedia.push(new Media({url: creations[i].url}))
+  }
+}
+
+for(let i = 0; i < 3; i++){
+  populateTestMedia();
+}
 
 // HOME //
 app.get('/', (request, response) => {
-  response.render('index', {
-    images: [
-      { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/008/666/799/large/andres-blanco-dvafanartsss-ahora-si-final.jpg?1514408536' },
-      { url: 'https://external-preview.redd.it/LGiMRW0B-Mz2KzTORYU-w2gp93R2Q5a7C4F1fDLkhiA.png?auto=webp&s=962911c344ecc4d6629b356ea42b60cfe88bfe02' },
-      { url: 'http://www.themanwiththehat.de/files/attachments/pZZ7xT1g.jpg' },
-      { url: 'https://i.pinimg.com/736x/9a/ea/99/9aea99d61bfd50a9d6aadb4469be33a4.jpg' },
-      { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
-      { url: 'https://external-preview.redd.it/3czaaDd4GSc-0-3gk8VTDi4yYdYjLrxln-iGvSLUQ4o.jpg?auto=webp&s=ad9739951fe88186d17784138fcc4a9d6fa98060'},
-      { url: 'https://assets.wallpapersin4k.org/uploads/2017/04/Wallpaper-Fan-Art-21.jpg'},
-      { url: 'http://pm1.narvii.com/7319/87253137c79924ac8bef849df9ab76369318c316r1-2048-2047v2_uhq.jpg'},
-      { url: 'https://static.wikia.nocookie.net/f8c3ae14-b1be-4dea-a0e0-19c40868845c/scale-to-width/755'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/001/207/916/large/oreki-genya-x.jpg?1442227975'},
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/014/607/823/large/aj-ramos-goblin-slayer-final-2.jpg?1544677847'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
-
-      { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/008/666/799/large/andres-blanco-dvafanartsss-ahora-si-final.jpg?1514408536' },
-      { url: 'https://external-preview.redd.it/LGiMRW0B-Mz2KzTORYU-w2gp93R2Q5a7C4F1fDLkhiA.png?auto=webp&s=962911c344ecc4d6629b356ea42b60cfe88bfe02' },
-      { url: 'http://www.themanwiththehat.de/files/attachments/pZZ7xT1g.jpg' },
-      { url: 'https://i.pinimg.com/736x/9a/ea/99/9aea99d61bfd50a9d6aadb4469be33a4.jpg' },
-      { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
-      { url: 'https://external-preview.redd.it/3czaaDd4GSc-0-3gk8VTDi4yYdYjLrxln-iGvSLUQ4o.jpg?auto=webp&s=ad9739951fe88186d17784138fcc4a9d6fa98060'},
-      { url: 'https://assets.wallpapersin4k.org/uploads/2017/04/Wallpaper-Fan-Art-21.jpg'},
-      { url: 'http://pm1.narvii.com/7319/87253137c79924ac8bef849df9ab76369318c316r1-2048-2047v2_uhq.jpg'},
-      { url: 'https://static.wikia.nocookie.net/f8c3ae14-b1be-4dea-a0e0-19c40868845c/scale-to-width/755'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/001/207/916/large/oreki-genya-x.jpg?1442227975'},
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/014/607/823/large/aj-ramos-goblin-slayer-final-2.jpg?1544677847'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
-
-      { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/008/666/799/large/andres-blanco-dvafanartsss-ahora-si-final.jpg?1514408536' },
-      { url: 'https://external-preview.redd.it/LGiMRW0B-Mz2KzTORYU-w2gp93R2Q5a7C4F1fDLkhiA.png?auto=webp&s=962911c344ecc4d6629b356ea42b60cfe88bfe02' },
-      { url: 'http://www.themanwiththehat.de/files/attachments/pZZ7xT1g.jpg' },
-      { url: 'https://i.pinimg.com/736x/9a/ea/99/9aea99d61bfd50a9d6aadb4469be33a4.jpg' },
-      { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
-      { url: 'https://external-preview.redd.it/3czaaDd4GSc-0-3gk8VTDi4yYdYjLrxln-iGvSLUQ4o.jpg?auto=webp&s=ad9739951fe88186d17784138fcc4a9d6fa98060'},
-      { url: 'https://assets.wallpapersin4k.org/uploads/2017/04/Wallpaper-Fan-Art-21.jpg'},
-      { url: 'http://pm1.narvii.com/7319/87253137c79924ac8bef849df9ab76369318c316r1-2048-2047v2_uhq.jpg'},
-      { url: 'https://static.wikia.nocookie.net/f8c3ae14-b1be-4dea-a0e0-19c40868845c/scale-to-width/755'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/001/207/916/large/oreki-genya-x.jpg?1442227975'},
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/014/607/823/large/aj-ramos-goblin-slayer-final-2.jpg?1544677847'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
-
-      { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/008/666/799/large/andres-blanco-dvafanartsss-ahora-si-final.jpg?1514408536' },
-      { url: 'https://external-preview.redd.it/LGiMRW0B-Mz2KzTORYU-w2gp93R2Q5a7C4F1fDLkhiA.png?auto=webp&s=962911c344ecc4d6629b356ea42b60cfe88bfe02' },
-      { url: 'http://www.themanwiththehat.de/files/attachments/pZZ7xT1g.jpg' },
-      { url: 'https://i.pinimg.com/736x/9a/ea/99/9aea99d61bfd50a9d6aadb4469be33a4.jpg' },
-      { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
-      { url: 'https://external-preview.redd.it/3czaaDd4GSc-0-3gk8VTDi4yYdYjLrxln-iGvSLUQ4o.jpg?auto=webp&s=ad9739951fe88186d17784138fcc4a9d6fa98060'},
-      { url: 'https://assets.wallpapersin4k.org/uploads/2017/04/Wallpaper-Fan-Art-21.jpg'},
-      { url: 'http://pm1.narvii.com/7319/87253137c79924ac8bef849df9ab76369318c316r1-2048-2047v2_uhq.jpg'},
-      { url: 'https://static.wikia.nocookie.net/f8c3ae14-b1be-4dea-a0e0-19c40868845c/scale-to-width/755'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/001/207/916/large/oreki-genya-x.jpg?1442227975'},
-      { url: 'https://cdnb.artstation.com/p/assets/images/images/014/607/823/large/aj-ramos-goblin-slayer-final-2.jpg?1544677847'},
-      { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
-    ],
-  });
+  response.render('index', {testMedia});
 })
 
 // Info API //
@@ -165,3 +119,4 @@ const generateID = () => {
     : 0
   return maxID + 1;
 }
+////////////////////////////////////////////////////////////////////////////////////
