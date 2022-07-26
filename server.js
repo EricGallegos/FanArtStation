@@ -1,11 +1,114 @@
 const express = require('express');
 const app = express();
+const mongo = require('mongodb').MongoClient;
+const connectionString = "mongodb+srv://Eric:1102@cluster0.jujju.mongodb.net/?retryWrites=true&w=majority"
 
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
-// Testing information //
+mongo.connect(connectionString)
+  .then(client => {
+    console.log('Connected to MongoDB');
+    const db = client.db('CreationStation');
+    const mediaCollection = db.collection('Media');
+
+    // HOME //
+    app.get('/', (request, response) => {
+      const cursor = mediaCollection.find().toArray()
+        .then( collection => {
+          collection.forEach( entry => {
+              firstSplash.push(entry);
+          })
+        }).catch(error => console.log(error));
+
+      response.render('index', {firstSplash});
+    })
+
+    // Info API //
+    // GET
+    app.get('/api/info', (request, response) =>{
+      let time = new Date();
+      response.send(`<p>FanArtStation has ${testMedia.length} badass pieces of art</p> <p>${time} </p>`);
+    });
+
+    // Art Collection API //
+    // GET
+    app.get('/api/art', (request, response) => {
+      response.json(art);
+    });
+
+    app.get('/api/art/:id', (request, response) => {
+      const id = Number(request.params.id);
+      const piece = art.find(art => art.id === id);
+
+      if(piece){
+        response.json(piece);
+      }else {
+        response.status(404).end();
+      }
+    });
+
+    // POST
+    app.post('/api/art', (request, response) => {
+      const body = request.body;
+      console.log(request.body);
+      if(!body.url || !body.ip || !body["media-type"]){
+        return response.status(400).json({ error: 'content missing' });
+      }
+
+      const piece = {
+        id: generateID(),
+        url: body.url,
+        date: new Date(),
+        "media-type": body["media-type"],
+        tags: body.tags || [],
+        ip: body.ip
+      }
+      art = art.concat(piece);
+      response.json(piece);
+    });
+
+    // Fill MongoDB with sample images
+    app.post('/api/addMedia', (request, response) =>{
+      console.log(testMedia);
+      testMedia.forEach(image => {
+        mediaCollection.insertOne(image)
+          .then(result => {
+            console.log(result);
+            response.redirect('/');
+          })
+          .catch(error => console.log(error))
+      })
+    });
+
+    // DELETE
+    app.delete('/api/deleteMedia', (request, response) => {
+      mediaCollection.deleteMany( { } )
+      .then(result => {
+        console.log('deletion complete')
+        response.redirect('/');
+      })
+      .catch(error => console.error(error))
+    })
+
+    app.delete('/api/art/:id', (request, response) =>{
+      const id = Number(request.params.id);
+      art = art.filter(art => art.id !== id);
+      console.log(art.length)
+      response.status(204).end();
+    });
+
+    app.delete('/api/art/delete/:url', (request, response) =>{
+      const url = request.params.url;
+      art = art.filter(art => art.url !== url);
+      console.log('Deleted: ', url)
+      response.status(204).end();
+    });
+
+}).catch(error => console.log(error));
+
+// Class containing all information pertaining to any single piece of fanart //
 class Media{
   constructor( {name, url, creator, date, uploadedBy} ){
     this.name = name || "KDA Evelynn";
@@ -33,80 +136,14 @@ const creations = [
   { url: 'https://cdna.artstation.com/p/assets/images/images/016/614/660/large/femke-brouwer-pikachu10.jpg?1552833465'},
 ]
 let testMedia = []
+let firstSplash = []
 
 function populateTestMedia(){
   for(let i = 0; i < 13; i++){
     testMedia.push(new Media({url: creations[i].url}))
   }
 }
-
-for(let i = 0; i < 3; i++){
-  populateTestMedia();
-}
-
-// HOME //
-app.get('/', (request, response) => {
-  response.render('index', {testMedia});
-})
-
-// Info API //
-// GET
-app.get('/api/info', (request, response) =>{
-  let time = new Date();
-  response.send(`<p>FanArtStation has ${testMedia.length} badass pieces of art</p> <p>${time} </p>`);
-});
-
-// Art Collection API //
-// GET
-app.get('/api/art', (request, response) => {
-  response.json(art);
-});
-
-app.get('/api/art/:id', (request, response) => {
-  const id = Number(request.params.id);
-  const piece = art.find(art => art.id === id);
-
-  if(piece){
-    response.json(piece);
-  }else {
-    response.status(404).end();
-  }
-});
-
-// POST
-app.post('/api/art', (request, response) => {
-  const body = request.body;
-  console.log(request.body);
-  if(!body.url || !body.ip || !body["media-type"]){
-    return response.status(400).json({ error: 'content missing' });
-  }
-
-  const piece = {
-    id: generateID(),
-    url: body.url,
-    date: new Date(),
-    "media-type": body["media-type"],
-    tags: body.tags || [],
-    ip: body.ip
-  }
-  art = art.concat(piece);
-  response.json(piece);
-});
-
-// DELETE
-app.delete('/api/art/:id', (request, response) =>{
-  const id = Number(request.params.id);
-  art = art.filter(art => art.id !== id);
-  console.log(art.length)
-  response.status(204).end();
-});
-
-app.delete('/api/art/delete/:url', (request, response) =>{
-  const url = request.params.url;
-  art = art.filter(art => art.url !== url);
-  console.log('Deleted: ', url)
-  response.status(204).end();
-});
+populateTestMedia();
 
 const PORT = 3001;
 app.listen(PORT);

@@ -15,12 +15,23 @@ header{
 }
 
 header section{
-  font-size: 1.25rem;
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+header section img{
+  max-width: 100%;
+  transition: ease .3s;
+}
+header section img:hover{
+  scale: .95;
+  transition: ease .3s;
 }
 
 header nav{
-  width: 70%;
+  width: 75%;
 }
 header nav ul{
   display: flex;
@@ -32,8 +43,9 @@ header nav ul{
 }
 header nav li{
   width: 25%;
-  padding-left: 9px;
+  padding-left: 0px;
   border-left: 1px solid grey;
+  text-align: center;
 }
 
 header nav li:hover{
@@ -43,7 +55,7 @@ header nav li:hover{
 
 .imageSplash{
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 }
 
 .imageSplash ul{
@@ -62,7 +74,7 @@ header nav li:hover{
   display:flex;
   max-width: 19%;
   background-color: black;
-  transition: .5s ease;
+  transition: .3s ease;
 }
 
 .imageSplash img{
@@ -71,10 +83,11 @@ header nav li:hover{
   display: block;
   margin: auto;
   border: 1px solid grey;
+  transition: ease .3s;
 }
 
 .imgContainer .textBox{
-  transition: .5s ease;
+  transition: .3s ease;
   opacity: 0;
   width: 100%;
   position: absolute;
@@ -85,12 +98,13 @@ header nav li:hover{
 
 .imgContainer:hover .textBox{
   opacity: 1;
-  scale: 1.05;
+  scale: .95;
 }
 
 .imageSplash .imgContainer:hover img{
-  scale: 1.05;
+  scale: .95;
   transition: ease .3s;
+  z-index: 0
 }
 
 @media screen and (min-width: 1200px){
@@ -101,8 +115,13 @@ header nav li:hover{
 
 @media screen and (max-width: 900px){
   .imgContainer{
-    max-width: 25%;
+    max-width: 33%;
   }
+
+.imageSplash .imgContainer img{
+    border: none;
+  }
+
   header section h3{
     display: none;
   }
