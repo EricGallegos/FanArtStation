@@ -8,9 +8,9 @@ app.use(express.static("public"));
 // Testing information //
 class Media{
   constructor( {name, url, creator, date, uploadedBy} ){
-    this.name = name || "John Snoe";
+    this.name = name || "KDA Evelynn";
     this.url = url || "#";
-    this.creator = creator || '?';
+    this.creator = creator || 'John Snoe';
     this.date = new Date();
     this.uploadedBy = uploadedBy;
     this.upvotes = 0;
@@ -53,7 +53,7 @@ app.get('/', (request, response) => {
 // GET
 app.get('/api/info', (request, response) =>{
   let time = new Date();
-  response.send(`<p>FanArtStation has ${art.length} badass pieces of art</p> <p>${time} </p>`);
+  response.send(`<p>FanArtStation has ${testMedia.length} badass pieces of art</p> <p>${time} </p>`);
 });
 
 // Art Collection API //
