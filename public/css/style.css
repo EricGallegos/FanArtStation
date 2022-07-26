@@ -1,0 +1,55 @@
+body{
+background-color: grey;
+}
+
+header{
+  font-family: 'Secular One', sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid black;
+}
+
+header section{
+  width: 30%;
+}
+
+header nav{
+  width: 70%;
+}
+header ul{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0px;
+}
+header li{
+  width: 25%;
+  padding-left: 9px;
+  border-left: 1px solid black;
+}
+
+#imageSplash{
+  width: 100%;
+}
+
+#imageSplash ul{
+  display: flex;
+  list-style: none;
+  padding-left: 0px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#imgContainer{
+  display: flex;
+  align-items: center;
+  max-width: 19%;
+  background-color: red;
+  border: 1px solid black;
+}
+
+#imageSplash img{
+  width: 100%;
+}
