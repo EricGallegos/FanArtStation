@@ -13,12 +13,16 @@
       </ul>
     </nav>
   </header>
-  <section id="imageSplash">
-    <h1>New Art</h1>
+  <section class="imageSplash">
+    <h1>Latest uploads</h1>
     <ul>
       <%testMedia.forEach(image => { %>
-        <li id ='imgContainer'>
+        <li class ='imgContainer'>
           <img src="<%= image.url %>" alt="">
+          <section class="textBox">
+            <span class="artTitle"><%= image.name %></span>
+            <span class="artist">By <%= image.creator %></span>
+          </section>
         </li>
       <% })%>
     </ul>
