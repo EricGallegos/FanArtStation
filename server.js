@@ -114,6 +114,7 @@ app.delete('/api/art/delete/:url', (request, response) =>{
 });
 
 // Class containing all information pertaining to any single piece of fanart //
+
 class Media{
   constructor( {name, url, creator, date, uploadedBy, accountURL} ){
     this.name = name || "KDA Evelynn";
@@ -125,6 +126,7 @@ class Media{
     this.accountURL = accountURL;
   }
 }
+
 
 const creations = [
   { url: 'https://cdna.artstation.com/p/assets/images/images/014/649/132/large/parzival-kda-evelyym.jpg?1544834412' },

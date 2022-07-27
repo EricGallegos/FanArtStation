@@ -9,21 +9,48 @@
         <li><h4>IP's</h4></li>
         <li><h4>Medias</h4></li>
         <li><h4>Search</h4></li>
+        <li><a href="#"><img src="#" alt="profile"></a></li>
       </ul>
     </nav>
   </header>
-  <section class="imageSplash">
-    <h1>Latest uploads</h1>
-    <ul>
-      <%firstSplash.forEach(image => { %>
-        <li class ='imgContainer'>
-          <img src="<%= image.url %>" alt="">
-          <section class="textBox">
-            <span class="artTitle"><%= image.name %></span>
-            <span class="artist">By <%= image.creator %></span>
-          </section>
-        </li>
-      <% })%>
-    </ul>
-  </div>
-  </section>
+
+  <main>
+    <section class="imageSplash" name="latest">
+      <section class="splashHeader">
+        <h1 id='latest'>Latest uploads</h1>
+        <button type="button" name="button">X</button>
+      </section>
+      <ul>
+        <%firstSplash.forEach(image => { %>
+          <li class ='imgContainer'>
+            <img src="<%= image.url %>" alt="">
+            <section class="textBox">
+              <span class="artTitle"><%= image.name %></span>
+              <span class="artist">By <%= image.creator %></span>
+            </section>
+          </li>
+        <% })%>
+      </ul>
+    </section>
+
+    <section class="imageSplash" name="hot">
+      <section class="splashHeader">
+        <h1 id='hot'>Hot</h1>
+        <button type="button" name="button">X</button>
+      </section>
+      <ul>
+        <%firstSplash.forEach(image => { %>
+          <li class ='imgContainer'>
+            <img src="<%= image.url %>" alt="">
+            <section class="textBox">
+              <span class="artTitle"><%= image.name %></span>
+              <span class="artist">By <%= image.creator %></span>
+            </section>
+          </li>
+        <% })%>
+      </ul>
+    </section>
+  </main>
+
+
+  <script type="text/javascript" src='js/main.js'></script>
