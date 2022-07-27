@@ -3,30 +3,32 @@
 }
 
 body{
-background-color: rgba(10,10,10,1);
+background-color: black;
 font-family: 'Secular One', sans-serif;
-color: grey;
+color: black;
 }
 
 header{
   display: flex;
-  justify-content: flex-start;
-  border-bottom: 1px solid grey;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
   position: sticky;
   top: 0;
+  z-index: 2;
+  background-color: white;
+  padding:1%;
 }
 
 header section{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 25%;
+  flex: 2;
 }
 
 header section img{
   max-width: 100%;
   transition: ease .3s;
-  padding-right: 8px;
 }
 header section img:hover{
   scale: .95;
@@ -38,16 +40,15 @@ header nav{
 }
 header nav ul{
   display: flex;
-  justify-content: space-between;
-  list-style: none;
-  padding-left: 0px;
-  margin: 0px;
   height: 100%;
 }
 header nav li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 20%;
   padding-left: 0px;
-  border-left: 1px solid grey;
+  border-left: 2px solid black;
   text-align: center;
 }
 
@@ -59,17 +60,20 @@ header nav li:hover{
 main{
   display: flex;
   flex-wrap: wrap;
+  align-items:
 }
 
 .imageSplash{
   position: relative;
-  max-height: 50vh;
+  max-height: 45vh;
   overflow: hidden;
-  border: 3px solid grey;
   transition: ease .3s;
   padding: 1%;
+  margin-bottom: 1%;
   scrollbar-width: thin;
   scrollbar-color: purple grey;
+  color: white;
+  background-color: rgb(15, 15, 15);
 }
 
 .imageSplash::-webkit-scrollbar {
@@ -124,7 +128,7 @@ main{
   position: relative;
   display:flex;
   max-width: 19%;
-  background-color: black;
+  background-color: white;
   transition: .3s ease;
 }
 
@@ -161,6 +165,7 @@ main{
 }
 
 @media screen and (min-width: 1200px){
+
   .imageSplash{
     max-width:50%
   }
@@ -170,7 +175,7 @@ main{
   }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1199px){
   .imgContainer{
     max-width: 33%;
   }
