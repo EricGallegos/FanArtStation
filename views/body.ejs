@@ -1,7 +1,7 @@
 <div id="bodyWrapper">
   <header id="header">
     <section>
-      <img src="sources/CreationStationLogo.png" alt="LOGO">
+      <img src="sources/CreationStationLogo2.png" alt="LOGO">
     </section>
     <nav>
       <ul>
@@ -9,7 +9,7 @@
         <li><h4>IP's</h4></li>
         <li><h4>Medias</h4></li>
         <li><h4>Search</h4></li>
-        <li><a href="#"><img src="#" alt="profile"></a></li>
+        <li><h4>Profile</h4></li>
       </ul>
     </nav>
   </header>
@@ -36,6 +36,42 @@
     <section class="imageSplash" name="hot">
       <section class="splashHeader">
         <h1 id='hot'>Hot</h1>
+        <button type="button" name="button">X</button>
+      </section>
+      <ul>
+        <%firstSplash.forEach(image => { %>
+          <li class ='imgContainer'>
+            <img src="<%= image.url %>" alt="">
+            <section class="textBox">
+              <span class="artTitle"><%= image.name %></span>
+              <span class="artist">By <%= image.creator %></span>
+            </section>
+          </li>
+        <% })%>
+      </ul>
+    </section>
+
+    <section class="imageSplash" name="forYou">
+      <section class="splashHeader">
+        <h1 id='forYou'>For You</h1>
+        <button type="button" name="button">X</button>
+      </section>
+      <ul>
+        <%firstSplash.forEach(image => { %>
+          <li class ='imgContainer'>
+            <img src="<%= image.url %>" alt="">
+            <section class="textBox">
+              <span class="artTitle"><%= image.name %></span>
+              <span class="artist">By <%= image.creator %></span>
+            </section>
+          </li>
+        <% })%>
+      </ul>
+    </section>
+
+    <section class="imageSplash" name="allTime">
+      <section class="splashHeader">
+        <h1 id='allTime'>All Time Favorites</h1>
         <button type="button" name="button">X</button>
       </section>
       <ul>
