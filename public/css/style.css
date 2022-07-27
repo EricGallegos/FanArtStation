@@ -3,7 +3,7 @@
 }
 
 body{
-background-color: rgba(5,5,5,1);
+background-color: rgba(10,10,10,1);
 font-family: 'Secular One', sans-serif;
 color: white;
 }
@@ -24,6 +24,7 @@ header section{
 header section img{
   max-width: 100%;
   transition: ease .3s;
+  padding-right: 8px;
 }
 header section img:hover{
   scale: .95;
