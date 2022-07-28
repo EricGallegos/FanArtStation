@@ -25,10 +25,10 @@ function toggleActiveSplash(){
 
     // For all splashes that werent clicked
     if( splashXClicked || this.getAttribute('name') != splashes[i].getAttribute('name') ){
-      splashes[i].setAttribute("style", "border-color: grey; overflow: hidden;");
+      splashes[i].setAttribute("style", "border-color: silver; overflow: hidden;");
 
       let title = document.querySelector(`#${splashes[i].getAttribute('name')}`);
-      title.setAttribute("style", "color: grey;")
+      title.setAttribute("style", "color: silver;")
 
       let button = document.querySelector(`#${splashes[i].getAttribute('name')} + button`)
       button.setAttribute("style", "opacity: 0;")
