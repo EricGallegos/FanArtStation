@@ -53,7 +53,7 @@ header nav li{
 }
 
 header nav li:hover{
-  background-color: grey;
+  background-color: silver;
   transition: ease .3s;
 }
 
@@ -69,11 +69,13 @@ main{
   overflow: hidden;
   transition: ease .3s;
   padding: 1%;
-  margin-bottom: 1%;
+  margin: 1%;
   scrollbar-width: thin;
-  scrollbar-color: purple grey;
+  scrollbar-color: purple black;
   color: white;
+  border: 3px solid silver;
   background-color: rgb(15, 15, 15);
+  max-width: 48%;
 }
 
 .imageSplash::-webkit-scrollbar {
@@ -85,7 +87,7 @@ main{
 }
 
 .imageSplash::-webkit-scrollbar-thumb {
-  background-color: grey;
+  background-color: black;
   border-radius: 20px;
   border: 3px solid purple;
 }
@@ -110,6 +112,8 @@ main{
   position: sticky;
   top: 0;
   transition: ease .3s;
+  color: silver;
+  background-color: rgb(15, 15, 15);
   z-index: 1;
 }
 
@@ -127,8 +131,9 @@ main{
 .imgContainer{
   position: relative;
   display:flex;
-  max-width: 19%;
-  background-color: white;
+  flex-direction: column;
+  max-width: 33%;
+  background-color: rgb(15, 15, 15);
   transition: .3s ease;
 }
 
@@ -138,7 +143,6 @@ main{
   height: auto;
   display: block;
   margin: auto;
-  border: 1px solid grey;
   transition: ease .3s;
 }
 
@@ -146,11 +150,14 @@ main{
   transition: .3s ease;
   opacity: 0;
   width: 100%;
-  position: absolute;
-  background-color: grey;
+  top: 0;
   text-align: center;
   font-size: .8rem;
-  color: white;
+  color: black;
+}
+
+.imgContainer:hover{
+  background-color: silver;
 }
 
 .imgContainer:hover .textBox{
@@ -166,25 +173,29 @@ main{
 
 @media screen and (min-width: 1200px){
 
-  .imageSplash{
-    max-width:50%
+
+  .imageSplash .imgContainer{
+    width: 24%;
   }
 
-  .imgContainer{
-      max-width: 19%;
-  }
 }
 
 @media screen and (max-width: 1199px){
-  .imgContainer{
-    max-width: 33%;
-  }
-
-.imageSplash .imgContainer img{
-    border: none;
-  }
-
   header section h3{
     display: none;
   }
+
+  header nav{
+    font-size: .6rem;
+  }
+
+  .imageSplash .imgContainer img{
+    border: none;
+  }
+
+  .imageSplash{
+    font-size: .6rem;
+    max-width: 98%;
+  }
+
 }

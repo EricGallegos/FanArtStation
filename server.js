@@ -113,8 +113,10 @@ app.delete('/api/art/delete/:url', (request, response) =>{
   response.status(204).end();
 });
 
-// Class containing all information pertaining to any single piece of fanart //
+// Other Resources //////////////////////////////////////////////////////////////
 
+// CLASSES //
+// Class containing all information pertaining to any single piece of fanart //
 class Media{
   constructor( {name, url, creator, date, uploadedBy, accountURL} ){
     this.name = name || "KDA Evelynn";
