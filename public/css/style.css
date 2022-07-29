@@ -139,7 +139,7 @@ header nav li:hover{
 .imgContainer{
   display:flex;
   flex-direction: column;
-  max-width: 33.33%;
+  max-width: 33%;
   background-color: rgb(15, 15, 15);
   transition: .3s ease;
 }
@@ -233,8 +233,9 @@ header nav li:hover{
 @media screen and (min-width: 1200px){
 
   .splashLanding li{
-      width:50%;
+    width:50%;
   }
+
 
   .viewer{
     flex-direction: row-reverse;

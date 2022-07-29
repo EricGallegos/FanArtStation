@@ -66,18 +66,30 @@ function setSplashInactive(){
 }
 
 function expandSplash(){
-  buttonClicked = true;
+
   let thisSplash = this.parentElement.parentElement.parentElement;
   console.log(thisSplash);
   for(let i in splashes){
     if(!splashXClicked && thisSplash === splashes[i]){
       thisSplash.parentElement.setAttribute("style", "width: 100%;")
-      thisSplash.setAttribute("style", "border-color: purple; overflow: scroll; height: 90vh; position: fixed; top: 8%; z-index: 2")
+      thisSplash.setAttribute("style", "border-color: purple; overflow: scroll; height: 90vh; position: fixed; top: 110px; z-index: 2")
+
+      let width = getComputedStyle(thisSplash).getPropertyValue('width').slice(0, -2)
+      let containers = thisSplash.querySelectorAll('.imgContainer')
+      if( +width > 1200 ){
+        containers.forEach( container => {
+          container.setAttribute("style", "max-width: 19%;")
+        });
+      }
       expanded = true;
     }
     if( splashXClicked && thisSplash === splashes[i]){
       thisSplash.parentElement.removeAttribute("style");
       thisSplash.removeAttribute("style");
+      let containers = thisSplash.querySelectorAll('.imgContainer')
+      containers.forEach( container => {
+        container.removeAttribute("style")
+      });
       expanded = false;
     }
     if( thisSplash !== splashes[i] ){
@@ -87,6 +99,7 @@ function expandSplash(){
       splashes[i].parentElement.removeAttribute("style")
     }
   }
+  buttonClicked = true;
 }
 
 function toggleViewer(){

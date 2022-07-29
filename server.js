@@ -136,9 +136,9 @@ app.delete('/api/art/delete/:url', (request, response) =>{
 // Class containing all information pertaining to any single piece of fanart //
 class Media{
   constructor( {name, url, creator, date, uploadedBy, accountURL} ){
-    this.name = name || "Trippy Smith";
+    this.name = name || "Lex Luthor";
     this.url = url || "#";
-    this.creator = creator || 'Igrit';
+    this.creator = creator || 'goste';
     this.date = new Date();
     this.uploadedBy = uploadedBy;
     this.upvotes = 0;
@@ -148,19 +148,19 @@ class Media{
 
 
 const creations = [
-  { url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRTEGVDaMqzITzzmUQBjK6nB3F8EoFrfqkrQ&usqp=CAU' },
-  { url: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/fanart-of-jinx-natasza-remesz.jpg' },
-  { url: 'https://i.pinimg.com/736x/05/4c/e1/054ce148c5b1c730594096ccb0612080.jpg' },
-  { url: 'https://www.sproutwired.com/final-fantasy-the-series-heroines-shine-in-beautiful-fan-art/' },
-  { url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnu1RMFjPopRbCD69CeMPQWRoPyniNFY7Tfw&usqp=CAU' },
-  { url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/e72b3157750847.59e232905123e.jpg'},
-  { url: 'https://cdna.artstation.com/p/assets/images/images/036/818/886/large/kyle-martin-mileena-splash-v4.jpg?1618707428'},
-  { url: 'https://testyourmight.com/data/avatars/h/6/6457.jpg?1563600559'},
+  { url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bded83c2-9666-4913-afaf-29ae29e5c24e/df939zw-e57f01e2-772b-41c0-8e1e-0df3f1e11201.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JkZWQ4M2MyLTk2NjYtNDkxMy1hZmFmLTI5YWUyOWU1YzI0ZVwvZGY5Mzl6dy1lNTdmMDFlMi03NzJiLTQxYzAtOGUxZS0wZGYzZjFlMTEyMDEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xspa5TOpFs3I6DWVC1x0DkIqccC7y0Tg3rvrPtif3kw' },
+  { url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6ad89ded-81c3-4729-b58c-4967487db49e/df946gc-3201ff53-5efd-466b-bc37-56a52eb068de.jpg/v1/fill/w_900,h_1125,q_75,strp/starlight_by_emryn_art_df946gc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTEyNSIsInBhdGgiOiJcL2ZcLzZhZDg5ZGVkLTgxYzMtNDcyOS1iNThjLTQ5Njc0ODdkYjQ5ZVwvZGY5NDZnYy0zMjAxZmY1My01ZWZkLTQ2NmItYmMzNy01NmE1MmViMDY4ZGUuanBnIiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.hiWUVyEDA-EBUmO86zaY-2x4G64P64yqXxyqF6hhPrg' },
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/051/879/845/large/k-e.jpg?1658394576' },
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/052/141/181/large/israel-juarez-tlapale-2.jpg?1659037601' },
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/052/138/445/4k/josephine-chang-ranni-fullres.jpg?1659030773' },
+  { url: 'https://cdna.artstation.com/p/assets/images/images/050/158/512/large/fragan-tanguy-artsta.jpg?1654183199'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/051/758/236/4k/yyhaili-001.jpg?1658131833'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/050/601/942/large/rebeca-puebla-pride-md-red.jpg?1655233877'},
   { url: 'https://c4.wallpaperflare.com/wallpaper/1/456/840/lol-league-of-legends-fan-art-fiora-wallpaper-preview.jpg'},
-  { url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9U_bsQfwomVbr_d8CREON8_9zovilKcY88g&usqp=CAU'},
-  { url: 'https://pbs.twimg.com/media/E8Q9OZmXsAA4RZt?format=jpg&name=large'},
-  { url: 'https://lh3.googleusercontent.com/yvbSoZUtXNMPVckIE3MAuSaT5vkz1wSWj0br7SUUYtM3RSgSBIWKHiX-SJNUto5lsVWnfvdPFQc9GguXuViCNfv6uN7Az-W_EksqLlk=w600'},
-  { url: 'https://i.pinimg.com/originals/a0/ed/d6/a0edd65a5343f0e972157b5c7cbbb0ef.jpg'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/050/379/160/large/n-i-x-e-u-kai-sa-tt.jpg?1654705546'},
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/051/816/613/large/mauricio-salgueiro-bronx-render-setupa-1003-exposure.jpg?1658244525'},
+  { url: 'https://cdnb.artstation.com/p/assets/images/images/051/936/833/large/edu-souza-mandalorian.jpg?1658527721'},
+  { url: 'https://cdna.artstation.com/p/assets/images/images/051/504/130/large/alex_che-alex-che-alexey-cheremnykh-mgs-portraits-02.jpg?1657473474'},
 ]
 let testMedia = []
 let firstSplash = []
