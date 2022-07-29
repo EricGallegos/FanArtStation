@@ -60,21 +60,24 @@ header nav li:hover{
 .splashLanding{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.splashLanding > *{
-    max-width: 50%;
+.splashLanding > li{
+  transition: ease .3s;
+  max-height: 90vh;
 }
 
 .imageSplash{
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 45vh;
   overflow: hidden;
+  width: 98%;
+  height: 45vh;
+  margin: 1% 0;
   transition: ease .3s;
   padding: 1%;
-  margin: 1%;
   scrollbar-width: thin;
   scrollbar-color: purple black;
   color: white;
@@ -111,6 +114,10 @@ header nav li:hover{
   transition: ease .3s;
 }
 
+.splashHeader .splashButtons{
+  height: 50%;
+}
+
 .imageSplash h1{
   display: inline;
   position: sticky;
@@ -133,10 +140,9 @@ header nav li:hover{
 }
 
 .imgContainer{
-  position: relative;
   display:flex;
   flex-direction: column;
-  max-width: 33%;
+  max-width: 33.33%;
   background-color: rgb(15, 15, 15);
   transition: .3s ease;
 }
@@ -175,11 +181,89 @@ header nav li:hover{
   z-index: 0
 }
 
+.viewer{
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  background-color: rgba(60, 60, 60, .995);
+  margin: 0 2%;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  top:8rem;
+  bottom:4rem;
+  transform: translateY(150%);
+  transition: ease .3s;
+  z-index: 3;
+}
+
+.viewerContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.viewerImageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+}
+
+.viewerImageContainer img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.viewerImageDetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 10%;
+  max-width: none;
+  margin-top: 1rem;
+}
+
+.viewer Button{
+  color: purple;
+  margin: 8px;
+}
+
 @media screen and (min-width: 1200px){
 
+  .splashLanding li{
+      width:48%;
+  }
 
-  .imageSplash .imgContainer{
-    width: 24%;
+  .viewer{
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .exitViewer{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .viewerContainer{
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .viewerImageContainer{
+    height: 100%;
+    width: 70%;
+  }
+
+  .viewerImageDetails{
+    max-height: none;
+    height: 100%;
+    width: 30%;
   }
 
 }
