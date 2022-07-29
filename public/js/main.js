@@ -1,5 +1,7 @@
 let splashXClicked = false;
 let viewerActive = false;
+let buttonClicked = false;
+let expanded = false;
 const splashes = Array.from(document.querySelectorAll('.imageSplash'));
 const expandSplashButtons = Array.from(document.querySelectorAll('.imageSplash .splashHeader div > button'))
 const exitSplashButtons = Array.from(document.querySelectorAll('.imageSplash .splashHeader div button + button'));
@@ -33,7 +35,9 @@ function toggleActiveSplash(){
     let exitButton = document.querySelector(`#${this.getAttribute('name')} + div button + button`)
 
     // If this was the splash clicked
-    if( !splashXClicked && this.getAttribute('name') === splashes[i].getAttribute('name') ) {
+    if( !splashXClicked && !buttonClicked && !expanded &&
+      this.getAttribute('name') === splashes[i].getAttribute('name') ) {
+
       this.setAttribute("style", "border-color: purple; overflow: scroll;");
       title.setAttribute("style", "color: transparent; background-color: transparent")
       expandButton.setAttribute("style", "opacity: .7;")
@@ -53,24 +57,34 @@ function toggleActiveSplash(){
     }
   }
   splashXClicked = false;
+  buttonClicked = false;
 }
 
 function setSplashInactive(){
   splashXClicked = true;
+  buttonClicked = true;
 }
 
-let initialWidth;
 function expandSplash(){
+  buttonClicked = true;
   let thisSplash = this.parentElement.parentElement.parentElement;
   console.log(thisSplash);
   for(let i in splashes){
     if(!splashXClicked && thisSplash === splashes[i]){
-      thisSplash.parentElement.setAttribute("style", "width: 98%")
-      console.log(thisSplash.style)
-      thisSplash.setAttribute("style", "height: 90vh")
+      thisSplash.parentElement.setAttribute("style", "width: 100%;")
+      thisSplash.setAttribute("style", "border-color: purple; overflow: scroll; height: 90vh; position: fixed; top: 8%; z-index: 2")
+      expanded = true;
     }
     if( splashXClicked && thisSplash === splashes[i]){
-      thisSplash.parentElement.setAttribute("style", "width: 48%")
+      thisSplash.parentElement.removeAttribute("style");
+      thisSplash.removeAttribute("style");
+      expanded = false;
+    }
+    if( thisSplash !== splashes[i] ){
+      splashes[i].parentElement.setAttribute("style", "display: none;")
+    }
+    if( splashXClicked && thisSplash !== splashes[i]){
+      splashes[i].parentElement.removeAttribute("style")
     }
   }
 }

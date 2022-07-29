@@ -50,22 +50,24 @@ header nav li{
   padding-left: 0px;
   border-left: 2px solid black;
   text-align: center;
+  transition: ease .3s;
 }
 
 header nav li:hover{
   background-color: silver;
-  transition: ease .3s;
 }
 
 .splashLanding{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .splashLanding > li{
+  display: flex;
+  margin: 1% 0 0 0;
+  justify-content: center;
   transition: ease .3s;
-  max-height: 90vh;
 }
 
 .imageSplash{
@@ -75,7 +77,6 @@ header nav li:hover{
   overflow: hidden;
   width: 98%;
   height: 45vh;
-  margin: 1% 0;
   transition: ease .3s;
   padding: 1%;
   scrollbar-width: thin;
@@ -109,13 +110,9 @@ header nav li:hover{
 
 .splashHeader button{
   color: purple;
-  height: 50%;
+  height: 30%;
   opacity: 0;
   transition: ease .3s;
-}
-
-.splashHeader .splashButtons{
-  height: 50%;
 }
 
 .imageSplash h1{
@@ -236,7 +233,7 @@ header nav li:hover{
 @media screen and (min-width: 1200px){
 
   .splashLanding li{
-      width:48%;
+      width:50%;
   }
 
   .viewer{
