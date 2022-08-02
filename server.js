@@ -157,6 +157,14 @@ class Media{
   }
 }
 
+class User{
+  constructor( {userName, name, password } ){
+    this.userName = userName;
+    this.name = name;
+    this.password = password;
+  }
+}
+
 
 const creations = [
   { url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bded83c2-9666-4913-afaf-29ae29e5c24e/df939zw-e57f01e2-772b-41c0-8e1e-0df3f1e11201.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JkZWQ4M2MyLTk2NjYtNDkxMy1hZmFmLTI5YWUyOWU1YzI0ZVwvZGY5Mzl6dy1lNTdmMDFlMi03NzJiLTQxYzAtOGUxZS0wZGYzZjFlMTEyMDEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xspa5TOpFs3I6DWVC1x0DkIqccC7y0Tg3rvrPtif3kw' },
