@@ -49,6 +49,17 @@ app.get('/', (request, response) => {
   response.render('index', {splashes, splashNames});
 })
 
+app.get('/myProfile', (request, response) =>{
+  response.send('Hello User X!');
+});
+
+app.get('/login', (request, response) =>{
+  response.send('Input username and password');
+});
+
+app.get('newAccount'), (request, response) =>{
+  response.send('To create a new account input a username and password');
+}
 
 // Info API //
 app.get('/api/info', (request, response) =>{
@@ -173,15 +184,17 @@ function populateTestMedia(){
 }
 populateTestMedia();
 
-const PORT = 3001;
-app.listen(PORT);
-console.log(`server is running on ${PORT}`);
-
-
 const generateID = () => {
   const maxID = art.length > 0
     ? Math.max(...art.map(n => n.id)) //Find largest id # in collection
     : 0
   return maxID + 1;
 }
+
+const PORT = 3001;
+app.listen(PORT);
+console.log(`server is running on ${PORT}`);
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////
