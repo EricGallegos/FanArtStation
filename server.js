@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const mongo = require('mongodb').MongoClient;
+const Media = require('./modules/Media');
+const User = require('./modules/User');
 require('dotenv').config();
 
 const connectionString = process.env.DB_STRING;
+const PORT = process.env.PORT;
 let db, mediaCollection, dbName = 'CreationStation';
 collectionName = 'Media'
 let splashes = [];
@@ -13,9 +16,8 @@ let splashNames = ['Latest', 'Hot', 'Top this week', 'All Timers', 'Up and Comin
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-
-// MongoDB Maintenance //
-
+app.use('/api/Auth', require('./modules/Auth/Route'))
+// MongoDB Connection //
 mongo.connect(connectionString)
   .then(client => {
     console.log('Connected to MongoDB');
@@ -145,25 +147,8 @@ app.delete('/api/art/delete/:url', (request, response) =>{
 
 // CLASSES //
 // Class containing all information pertaining to any single piece of fanart //
-class Media{
-  constructor( {name, url, creator, date, uploadedBy, accountURL} ){
-    this.name = name || "Lex Luthor";
-    this.url = url || "#";
-    this.creator = creator || 'goste';
-    this.date = new Date();
-    this.uploadedBy = uploadedBy;
-    this.upvotes = 0;
-    this.accountURL = accountURL;
-  }
-}
 
-class User{
-  constructor( {userName, name, password } ){
-    this.userName = userName;
-    this.name = name;
-    this.password = password;
-  }
-}
+
 
 
 const creations = [
@@ -199,7 +184,6 @@ const generateID = () => {
   return maxID + 1;
 }
 
-const PORT = 3001;
 app.listen(PORT);
 console.log(`server is running on ${PORT}`);
 

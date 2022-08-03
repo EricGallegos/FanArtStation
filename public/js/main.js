@@ -72,7 +72,7 @@ function expandSplash(){
   for(let i in splashes){
     if(!splashXClicked && thisSplash === splashes[i]){
       thisSplash.parentElement.setAttribute("style", "width: 100%;")
-      thisSplash.setAttribute("style", "border-color: purple; overflow: scroll; height: 90vh; position: fixed; top: 110px; z-index: 2")
+      thisSplash.setAttribute("style", "border-color: purple; overflow: scroll; max-height: 90vh; position: fixed; top: 110px; z-index: 2")
 
       let width = getComputedStyle(thisSplash).getPropertyValue('width').slice(0, -2)
       let containers = thisSplash.querySelectorAll('.imgContainer')
