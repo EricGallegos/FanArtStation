@@ -3,7 +3,7 @@
 }
 
 body{
-background-color: black;
+background-color: rgb(30, 30, 30);
 font-family: 'Secular One', sans-serif;
 color: black;
 }
@@ -17,7 +17,7 @@ header{
   z-index: 5;
   background-color: white;
   padding: .5%;
-  max-height: 10vh;
+  max-height: 8vh;
 }
 
 header > section{
@@ -69,6 +69,10 @@ header nav li:hover{
   transition: ease .3s;
 }
 
+footer section{
+  height: 1rem;
+}
+
 .dropDown{
   width:100%;
   height: 300%;
@@ -79,6 +83,8 @@ li:hover .dropDown{
   transform: translate(200%);
 }
 
+/********** Main ********************************/
+
 .splashLanding{
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +93,7 @@ li:hover .dropDown{
 
 .splashLanding > li{
   display: flex;
-  margin: 1% 0 0 0;
+  margin: 1vh 0;
   justify-content: center;
   transition: ease .3s;
 }
@@ -98,7 +104,7 @@ li:hover .dropDown{
   position: relative;
   overflow: hidden;
   width: 98%;
-  max-height: 47vh;
+  max-height: 46.5vh;
   transition: ease .3s;
   padding: 1%;
   scrollbar-width: thin;
@@ -149,29 +155,31 @@ li:hover .dropDown{
 
 .imageSplash ul{
   display: flex;
-  flex-direction: row;
-  list-style: none;
-  height: 100%;
-  padding-left: 0px;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 2rem;
 }
 
 .imgContainer{
   display:flex;
   flex-direction: column;
-  max-width: 33%;
+  height: 20vh;
   background-color: rgb(15, 15, 15);
   transition: .3s ease;
+  flex-grow: 1;
+}
+
+.expanded{
+  height: 20vh;
 }
 
 
 .imageSplash img{
   width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover;
   transition: ease .3s;
 }
 
@@ -199,6 +207,27 @@ li:hover .dropDown{
   transition: ease .3s;
   z-index: 0
 }
+
+@media (orientation: landscape){
+
+  .splashLanding > li{
+    width:50%;
+  }
+
+  .imageSplash{
+    max-height: 92vh;
+  }
+
+  .imgContainer{
+    height: 25vh;
+  }
+
+  .expanded{
+    height: 40vh;
+  }
+}
+
+/********** Img Viewer ********************************/
 
 .viewer{
   display: flex;
@@ -252,13 +281,8 @@ li:hover .dropDown{
   margin: 8px;
 }
 
+
 @media (orientation: landscape){
-
-  .splashLanding li{
-    width:50%;
-  }
-
-
   .viewer{
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -288,7 +312,7 @@ li:hover .dropDown{
 
 }
 
-@media (orientation: portrait){
+/* @media (orientation: portrait){
 
   .imageSplash .imgContainer img{
     border: none;
@@ -298,3 +322,4 @@ li:hover .dropDown{
     max-width: 100%;
     font-size: .6rem;
   }
+} */

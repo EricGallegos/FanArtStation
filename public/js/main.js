@@ -76,9 +76,10 @@ function expandSplash(){
 
       let width = getComputedStyle(thisSplash).getPropertyValue('width').slice(0, -2)
       let containers = thisSplash.querySelectorAll('.imgContainer')
-      if( +width > 1200 ){
+      if( true ){
         containers.forEach( container => {
-          container.setAttribute("style", "max-width: 19%;")
+          //container.setAttribute("style", "max-width: 19%;")
+          container.classList.add("expanded");
         });
       }
       expanded = true;
@@ -89,6 +90,7 @@ function expandSplash(){
       let containers = thisSplash.querySelectorAll('.imgContainer')
       containers.forEach( container => {
         container.removeAttribute("style")
+        container.classList.remove("expanded")
       });
       expanded = false;
     }

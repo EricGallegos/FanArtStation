@@ -24,7 +24,6 @@ mongo.connect(connectionString)
     db = client.db(dbName);
     mediaCollection = db.collection(collectionName);
     updateSplashes();
-
 }).catch(error => console.log(error));
 
 function updateSplashes(){
@@ -53,7 +52,7 @@ app.get('/', (request, response) => {
 
 app.get('/myProfile', (request, response) =>{
   response.send('Hello User X!');
-});
+}); 
 
 app.get('/login', (request, response) =>{
   response.send('Input username and password');
