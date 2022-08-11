@@ -190,11 +190,11 @@ li:hover .dropDown{
   top: 0;
   text-align: center;
   font-size: .8rem;
-  color: black;
+  color: silver;
 }
 
 .imgContainer:hover{
-  background-color: silver;
+  background-color: rgb(40,40,40);
 }
 
 .imgContainer:hover .textBox{
@@ -234,6 +234,7 @@ li:hover .dropDown{
   flex-direction: column;
   width: 96%;
   background-color: rgba(60, 60, 60, .995);
+  box-shadow: inset 0 0 0 3px rgba(20,20,20,0.3);
   margin: 0 2%;
   justify-content: flex-start;
   align-items: flex-end;
@@ -252,13 +253,14 @@ li:hover .dropDown{
   align-items: center;
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 
 .viewerImageContainer{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90%;
+  max-height: 90%;
   width: 100%;
 }
 
@@ -270,10 +272,13 @@ li:hover .dropDown{
 .viewerImageDetails{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-height: 10%;
-  max-width: none;
-  margin-top: 1rem;
+  padding: 2rem;
+  align-items: center;
+  background-color: rgb(240,240,240);
+  border-left: 3px solid purple;
+  border-right: 3px solid purple;
+  width: 70%;
+  flex: 1;
 }
 
 .viewer Button{
