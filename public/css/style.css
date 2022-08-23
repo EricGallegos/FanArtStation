@@ -1,13 +1,11 @@
+*{
+  box-sizing: border-box;
+}
+
 .login-container{
   width:400px;
   margin-top: 50px;
   text-align: center;
-}
-
-.container{
-  width: 100%;
-  max-width: none;
-  margin: none;
 }
 
 p{
@@ -31,6 +29,10 @@ p{
   width: 4rem;
 }
 
+body{
+  background-color: #19191a;
+}
+
 #bodyWrapper{
   width: 100%;
 }
@@ -38,13 +40,17 @@ p{
 #navBar{
   display: flex;
   width: 100%;
+  height: 80px;
 }
-
-#navBar > div{
-  max-width: 1280px;
+#navBar a{
+  line-height: 85px;
 }
-
-#Wrapper{
-  max-width: 1280px;
-  margin: 0 auto;
+#navBar .brand-logo{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+#navLinks {
+  height: 100%;
+  display: flex;
 }

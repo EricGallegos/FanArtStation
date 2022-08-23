@@ -8,7 +8,7 @@
     <title></title>
   </head>
   <body>
-    <div id="bodyWrapper" class="container">
+    <div id="bodyWrapper">
       {{> _header}}
       {{> _add_btn}}
         {{{body}}}
@@ -17,7 +17,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      M.Sidenav.init(document.querySelector('.sidenav'));
+      M.Sidenav.init(document.querySelector('.sidenav'), {
+        edge: 'right',
+      });
       M.FormSelect.init(document.querySelector('#status'));
     </script>
   </body>
