@@ -1,7 +1,7 @@
 # Creation Station
 Art and media from your favorite IP's - [Coming Soon](#)
 
-![CreationStationLogo](public\sources\CreationStationLogoNew.png)
+![CreationStationLogo](https://github.com/EricGallegos/FanArtStation/blob/main/public/sources/CreationStationLogoNew.png)
 
 ## What is Creation Station?
 A new way to browse fanart and organize collections of your favorites. Users can upload their own original pieces to show to the world or browse and create their own "splashes" of art.
